@@ -9,7 +9,7 @@ public class recorridoCamion {
         System.out.println("2. Salir.");
     }
 
-    public recorridoCamion(Grafo matrizAdy, int valorInicialX, int[] necesidadEstaciones) {
+    public static String recorridoCamion(Grafo matrizAdy, int valorInicialX, int[] necesidadEstaciones) {
         int posActual;
         int valorActual = valorInicialX;
         int mayor = -1;
@@ -23,11 +23,15 @@ public class recorridoCamion {
             posActual = siguiente;
             siguiente = avanzar(matrizAdy, posActual, necesidadEstaciones, mayor, valorActual, estacionRecorrida);
         }
-        System.out.println("El recorrido del día es el siguiente:");
+        String mensajeRecorrido="El recorrido del día es el siguiente: Inicio en ";
+        //System.out.println("El recorrido del día es el siguiente:");
         for (Object o : recorrido) {
-            System.out.println(o);
+            mensajeRecorrido=mensajeRecorrido.concat("Id "+ o+" - ");
+            //System.out.println(o);
         }
-        System.out.println("El material restante al terminar el recorrido es: " + valorActual + "\n");
+        mensajeRecorrido=mensajeRecorrido.concat("El material restante al terminar el recorrido es: " + valorActual + "\n");
+        //System.out.println("El material restante al terminar el recorrido es: " + valorActual + "\n");
+        return mensajeRecorrido;
     }
 
     public static ArrayList adyacentes(Grafo matrizAdy, int v) {
@@ -103,7 +107,7 @@ public class recorridoCamion {
                 case 1 -> {
                     System.out.println("Ingrese la cantidad inicial de materia prima:");
                     int valorInicialX = in.nextInt();
-                    new recorridoCamion(g, valorInicialX, necesidadEstaciones);
+                    System.out.println(recorridoCamion(g, valorInicialX, necesidadEstaciones));
                 }
                 case 2 -> System.out.println("Nos alegra haberte ayudado, ¡Ten un feliz día! :)");
                 default -> System.out.println("Incorrect option");
