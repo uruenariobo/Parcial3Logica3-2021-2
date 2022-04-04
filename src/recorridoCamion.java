@@ -24,13 +24,10 @@ public class recorridoCamion {
             siguiente = avanzar(matrizAdy, posActual, necesidadEstaciones, mayor, valorActual, estacionRecorrida);
         }
         String mensajeRecorrido="El recorrido del día es el siguiente: Inicio en ";
-        //System.out.println("El recorrido del día es el siguiente:");
         for (Object o : recorrido) {
             mensajeRecorrido=mensajeRecorrido.concat("Id "+ o+" - ");
-            //System.out.println(o);
         }
         mensajeRecorrido=mensajeRecorrido.concat("El material restante al terminar el recorrido es: " + valorActual + "\n");
-        //System.out.println("El material restante al terminar el recorrido es: " + valorActual + "\n");
         return mensajeRecorrido;
     }
 
@@ -40,9 +37,7 @@ public class recorridoCamion {
             return null;
         } else {
             int aux = matrizAdy.obtenerPrimerAdy(v);
-            //System.out.println("Lista: ");
             while (aux != -1) {
-                //System.out.print(" " + aux);
                 list.add(aux);
                 aux = matrizAdy.sgteAdyacente(v, aux);
             }
